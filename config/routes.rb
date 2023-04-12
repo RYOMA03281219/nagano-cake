@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # 会員側のルーティング設定→public
+  get 'items'=> 'public/items#index'
+  
   namespace :admin do
     get 'orders/show'
   end
@@ -24,6 +27,14 @@ Rails.application.routes.draw do
     get 'sessions/create'
     get 'sessions/destroy'
   end
+
+
+  # 管理者側のルーティング設定→admin
+  namespace :admin do
+    get 'items' => 'admin/items#index'
+  end 
+end
+  
   namespace :public do
     get 'cart_items/index'
     get 'cart_items/update'
