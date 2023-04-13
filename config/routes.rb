@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'items' => 'admin/items#index'
   end 
-end
   
   namespace :public do
     get 'cart_items/index'
