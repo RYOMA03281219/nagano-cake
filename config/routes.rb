@@ -1,38 +1,7 @@
 Rails.application.routes.draw do
   # 会員側のルーティング設定→public
-  get 'items'=> 'public/items#index'
-  
-  namespace :admin do
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/create'
-    get 'items/show'
-    get 'items/edit'
-    get 'items/update'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :admin do
-    get 'sessions/new'
-    get 'sessions/create'
-    get 'sessions/destroy'
-  end
-
-
-  # 管理者側のルーティング設定→admin
-  namespace :admin do
-    get 'items' => 'admin/items#index'
-  end 
+  get '/'=> 'public/homes#top', as: "root"
+  devise_for :customers
   
   namespace :public do
     get 'cart_items/index'
@@ -58,5 +27,37 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'homes/about'
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ 
+
+  # 管理者側のルーティング設定→admin
+  divise_for :admins
+  namespace :admin do
+    get 'items' => 'admin/items#index'
+  end
+  root to: 'homes#top'
+
+  namespace :admin do
+    get 'orders/show'
+  end
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/update'
+  end
+  namespace :admin do
+    get 'items/index'
+    get 'items/new'
+    get 'items/create'
+    get 'items/show'
+    get 'items/edit'
+    get 'items/update'
+  end
+  namespace :admin do
+    get 'sessions/new'
+    get 'sessions/create'
+    get 'sessions/destroy'
+  end
+  
+    # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
