@@ -25,11 +25,31 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
 
+              <!--user画面 以下にnav itemを記載-->
+              <!--% elsif customer_sign_in? %>-->
+              <!--% else %>-->
 
-           <!--検索機能-->
-           <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+            <!--管理者画面 以下にnav itemを記載-->
+              <!--% if admin_log_in? %>-->
+              <!--% else %>-->
+
+
+
+
+          <!--検索機能-->
+          <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </body>
+
+
+
 
     <%= yield %>
   </body>
