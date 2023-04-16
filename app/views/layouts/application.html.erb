@@ -25,18 +25,40 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
 
-              <!--user画面 以下にnav itemを記載-->
-              <!--% elsif customer_sign_in? %>-->
-              <!--% else %>-->
+            <% if admin_signed_in? %>
 
-            <!--管理者画面 以下にnav itemを記載-->
-              <!--% if admin_log_in? %>-->
-              <!--% else %>-->
+            <% elsif customer_signed_in? %>
 
 
 
+            <% else %>
+            <li class="nav-item">
+                <%#= link_to home_about_path, class: 'nav-link text-light' do %>
+                <%#= f.submit "", class: "btn btn-sm btn-primary"%>
+                About
+              <%# end %>
+            </li>
+            <%#= link_to "戻る", hoge_path, class: 'btn btn-default' %>
+            <li class="nav-item">
+              <%#= link_to home_about_path, class: 'nav-link text-light' do %>
+                商品一覧
+              <%# end %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to home_about_path, class: 'nav-link text-light' do %>
+                新規登録
+              <%# end %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to home_about_path, class: 'nav-link text-light' do %>
+                ログイン
+              <%# end %>
+            </li>
+            <% end %>
 
-          <!--検索機能-->
+
+
+              <!--検索機能-->
           <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
