@@ -26,6 +26,32 @@
             <ul class="navbar-nav ml-auto">
 
             <% if admin_signed_in? %>
+            <li class="nav-item">
+              <%#= link_to home_about_path, class: 'nav-link text-light' do %>
+                商品一覧
+              <%# end %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to home_about_path, class: 'nav-link text-light' do %>
+                会員一覧
+              <%# end %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to home_about_path, class: 'nav-link text-light' do %>
+                注文履歴一覧
+              <%# end %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to home_about_path, class: 'nav-link text-light' do %>
+                ジャンル一覧
+              <%# end %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to home_about_path, class: 'nav-link text-light' do %>
+                ログイン
+              <%# end %>
+            </li>
+
 
             <% elsif customer_signed_in? %>
 
@@ -48,7 +74,7 @@
               <%#= link_to home_about_path, class: 'nav-link text-light' do %>
                 新規登録
               <%# end %>
-              
+
             </li>
             <li class="nav-item">
               <%#= link_to home_about_path, class: 'nav-link text-light' do %>
