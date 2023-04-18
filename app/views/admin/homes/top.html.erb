@@ -15,12 +15,22 @@
               </tr>
             </thead>
             <tbody>
-              <% @admin.each do |book| %>
-              
-              
-              
-              
-              
+              <% @orders.each do |order| %>
+              <tr>
+                  <td>
+                    <%= link_to order.created_at.strftime("%Y/%m/%d/ %H:%M:%S") %>
+                      <%#= image_tag book.user.get_profile_image(80,80) %
+                    <%# end %>
+                  </td>
+                  <td>
+                    <%= oder.name %>
+                  </td>
+                  <td>
+                    <% OderDetail.where(order_id: order.id) %>
+                  </td>
+                   <td>
+                    <%= order.order_status %>
+              <% end %>
             </tbody>
           </table>
         </div>
