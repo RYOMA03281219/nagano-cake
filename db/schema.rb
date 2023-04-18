@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 2023_04_13_135911) do
     t.string "name", null: false
     t.string "postage", null: false
     t.string "billing_amount", null: false
-    t.integer "payment_method", null: false
-    t.boolean "order_status", default: true, null: false
+    t.integer "payment_method", default: 0, null: false
+    t.integer "order_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
