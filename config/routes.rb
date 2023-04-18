@@ -14,15 +14,16 @@ devise_for :customers,skip: [:passwords], controllers: {
 devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  namespace :admins do
+  namespace :admin do
     devise_for :admins, skip: :all
     devise_scope :admins do
     get '/sign_in' => 'sessions#new'
     post '/sign_in' => 'sessions#create'
     delete '/sign_out' => 'sessions#destroy'
+    get '/' => 'homes#top'
   end
 
-  get '/admins' => 'homes#top'
+
   resources :customers, only: [:edit, :index, :show, :update]
 
 
