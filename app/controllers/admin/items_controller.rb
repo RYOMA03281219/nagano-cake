@@ -8,11 +8,17 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to admin_path(@item.id)
+    else
+      render "new"
+    end
   end
 
   def show
     @item = Item.find(params[:id])
-    @genre = Genre.find(@item.genre_id)
+    @genre = @item.genre
   end
 
   def edit
@@ -20,4 +26,6 @@ class Admin::ItemsController < ApplicationController
 
   def update
   end
+  
+
 end
