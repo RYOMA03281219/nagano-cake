@@ -1,10 +1,11 @@
 <p id="notice"></p>
   <div class="container">
+    <h2>商品編集</h2>
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-        <h2>商品編集</h2>
         <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
 
+      <table class="table table-borderless">
         <tr>
           <td><%= f.label :商品画像 %></td>
           <td><%= f.file_field :item_image, accept: "image/*" %></td>
@@ -22,7 +23,7 @@
 
         <tr>
           <td><%= f.label :ジャンル %></td>
-          <td><%= f.collection_select :genre_id, Genre.all, :id, :name, %>
+          <td><%= f.collection_select :genre_id, Genre.all, :id, :name %></td>
         </tr>
 
         <tr>
@@ -35,11 +36,11 @@
           <td><%= f.radio_button :is_active, true %><%= f.label :販売中 %>
           <%= f.radio_button :is_active, false %><%= f.label :販売停止中 %></td>
         </tr>
-        </table>
+      </table>
 
-        <div id = "item-action-btn">
-          <%= f.submit "変更を保存", class: "btn btn-default btn-lg btn-info " %>
-        </div>
+      <div id = "item-action-btn">
+        <%= f.submit "変更を保存", class: "btn btn-default btn-lg btn-info " %>
+      </div>
         <% end %>
       </div>
     </div>
