@@ -1,2 +1,47 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2>商品編集</h2>
+        <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+
+        <tr>
+          <td><%= f.label :商品画像 %></td>
+          <td><%= f.file_field :item_image, accept: "image/*" %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :商品名 %></td>
+          <td><%= f.text_field :name, autofocus: true, id:"item_name" %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :商品説明 %></td>
+          <td><%= f.text_area :introduction %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :ジャンル %></td>
+          <td><%= f.collection_select :genre_id, Genre.all, :id, :name, %>
+        </tr>
+
+        <tr>
+          <td><%= f.label :税抜価格 %></td>
+          <td><%= f.text_field :price %>円</td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :販売ステータス %>
+          <td><%= f.radio_button :is_active, true %><%= f.label :販売中 %>
+          <%= f.radio_button :is_active, false %><%= f.label :販売停止中 %></td>
+        </tr>
+        </table>
+
+        <div id = "item-action-btn">
+          <%= f.submit "変更を保存", class: "btn btn-default btn-lg btn-info " %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
