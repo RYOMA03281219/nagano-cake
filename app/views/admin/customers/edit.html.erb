@@ -1,2 +1,58 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container">
+  <h2><%= @customer.name%>さんの会員詳細</h2>
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <%= form_with model: @customer,url: admin_customer_path, method: :patch do |f| %>
+
+      <table class="table table-borderless">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id%></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :氏名 %></td>
+          <td><%= f.text_field :last_name, class: 'btn-block' %></td>
+          <td><%= f.text_field :first_name, class: 'btn-block' %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :フリガナ %></td>
+          <td><%= f.text_field :last_name_kana, class: 'btn-block' %></td>
+          <td><%= f.text_field :first_name_kana, class: 'btn-block' %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :郵便番号 %></td>
+          <td><%= f.text_field :postal_code, class: 'btn-block' %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :住所 %></td>
+          <td><%= f.text_field :address, class: 'btn-block' %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :電話番号 %></td>
+          <td><%= f.text_field :telephone_number, class: 'btn-block' %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :メールアドレス %></td>
+          <td><%= f.text_field :email, class: 'btn-block' %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label :会員ステータス %></td>
+          <td><%= f.radio_button :is_deleted, true %><%= f.label :有効 %>
+              <%= f.radio_button :is_deleted, false %><%= f.label :退会 %></td>
+        </tr>
+      </table>
+
+      <div id = "item-action-btn">
+        <%= f.submit "変更を保存", class: "btn btn-default btn-lg btn-info" %>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>
