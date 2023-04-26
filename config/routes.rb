@@ -4,11 +4,13 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
   namespace :admin do
+  get '/' => 'homes#top'
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
   resources :customers, only: [:edit, :index, :show, :update]
-    get '/' => 'homes#top'
+  resources :orders, only: [:show]
+  resources :genres, only: [:index, :create, :edit, :update]
   end
-  
+
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
