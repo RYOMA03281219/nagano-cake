@@ -16,6 +16,10 @@ devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
+  namespace :public do
+  get '/' => 'homes#top', as: "root"
+  get '/homes/about' => 'homes#about'
+ end
 
 
 
