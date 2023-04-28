@@ -6,7 +6,8 @@
       <div class ="form-group">
         <label for="genre_name">ジャンル名</label>
           <td><%= f.text_field :name %></td>
-          <td><%= link_to "編集する", admin_genres_path(@genre.id), class: "btn btn-default btn-lg btn-info" %></td>
+          <td><%= f.submit "編集する", class: "btn btn-default btn-lg btn-info"%>
+          <td><%#= link_to "編集する", admin_genres_path(@genre.id), class: "btn btn-default btn-lg btn-info" %></td>
         </div>
       <% end %>
     </div>
