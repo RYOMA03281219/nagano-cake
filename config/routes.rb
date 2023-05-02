@@ -16,11 +16,12 @@ devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
-  namespace :public do
-  get '/' => 'homes#top', as: "root"
+  scope module: :public do
+  root 'homes#top'
   get '/homes/about' => 'homes#about'
+  resources :items, only: [:index, :show]
+  resources :customers, only: [:show, :edit, :update, :cancellation, :withdrawal]
  end
-
 
 
 # 管理者側のルーティング設定
