@@ -1,2 +1,29 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <th><%#= render 'public/items/genre_search', genres: @genres %></th>
+    </div>
+
+
+    <div class="col-md-4">
+      <p><%= image_tag @item.get_image(300,300)%></p>
+    </div>
+
+      <div class="col-md-5">
+        <p><%= @item.name %></p>
+        <p><%= @item.introduction %></p>
+        <p><%= @item.price %></p>
+
+        <%= form_with model: @item, url:cart_items_path, method: :get do |f| %>
+          <%= f.select :amount, *[1..10] %>
+          <%= f.hidden_field :customer_id, current_customer.id %>
+          <%= f.hidden_field :item_id, @item.id %>
+          <%= f.submit :"カートに入れる", class: "btn btn-default btn-lg btn-info"%>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+
+
+

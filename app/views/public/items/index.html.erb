@@ -4,6 +4,18 @@
       <th><%#= render 'public/items/genre_search', genres: @genres %></th>
     </div>
 
-     <div class="col-md-9">
-      <h1>商品一覧</h1>
+    <div class="col-md-9">
+      <!--ストロングタグで作成する-->
+      <h1><strong>商品一覧</strong>(全<%= @item_count %>件)</h1>
+      <% @items.each do |item| %>
+         <%= link_to item_path(item) do %>
+           <p><%= image_tag item.get_image(200,200)%></p>
+         <% end %>
+           <p><%= item.name %></p>
+           <p><%= item.price %></p>
+      <% end %>
+    </div>
+    <%= paginate @items %>
+  </div>
+</div>
 
