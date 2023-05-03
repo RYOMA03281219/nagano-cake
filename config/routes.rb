@@ -21,6 +21,8 @@ devise_for :customers,skip: [:passwords], controllers: {
   get '/homes/about' => 'homes#about'
   resources :items, only: [:index, :show]
   resources :customers, only: [:show, :edit, :update, :cancellation, :withdrawal]
+  resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+  resources :orders, only: [:new, :confirm, :completion, :create, :index, :show]
  end
 
 
