@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'addresses/index'
+    get 'addresses/edit'
+  end
 # 顧客用
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
@@ -20,9 +24,15 @@ devise_for :customers,skip: [:passwords], controllers: {
   root 'homes#top'
   get '/homes/about' => 'homes#about'
   resources :items, only: [:index, :show]
-  resources :customers, only: [:show, :edit, :update, :cancellation, :withdrawal]
+  get '/customers/my_page' => 'customers#show'
+  get '/customers/information/edit' => 'customers#edit'
+  # patch '/customers/information' => 'customers#update'
+  get '/customers/cancellation' => 'customers#cancellation'
+  # patch '/customers/withdrawal' => 'customers#withdrawal'
+  # resources :customers, only: [:show, :edit, :update, :cancellation, :withdrawal]
   resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
   resources :orders, only: [:new, :confirm, :completion, :create, :index, :show]
+  resources :addresses, only: [:index, :create, :edit, :update, :destroy]
  end
 
 
