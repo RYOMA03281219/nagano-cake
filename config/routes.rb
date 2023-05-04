@@ -32,7 +32,7 @@ devise_for :customers,skip: [:passwords], controllers: {
   # resources :customers, only: [:show, :edit, :update, :cancellation, :withdrawal]
   resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
   resources :orders, only: [:new, :confirm, :completion, :create, :index, :show]
-  resources :addresses, only: [:index, :create, :edit, :update, :destroy]
+  resources :addresses, only: [:index, :edit]
  end
 
 
