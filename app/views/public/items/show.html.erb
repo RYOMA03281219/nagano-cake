@@ -14,10 +14,10 @@
         <p><%= @item.introduction %></p>
         <p><%= @item.price %></p>
 
-        <%= form_with model: @item, url:cart_items_path, method: :get do |f| %>
+        <%= form_with model: @cart_item, url:cart_items_path, method: :get do |f| %>
           <%= f.select :amount, *[1..10] %>
-          <%= f.hidden_field :customer_id, current_customer.id %>
-          <%= f.hidden_field :item_id, @item.id %>
+          <%= f.hidden_field :customer_id, :value => current_customer.id %>
+          <%= f.hidden_field :item_id, @cart_item.id %>
           <%= f.submit :"カートに入れる", class: "btn btn-default btn-lg btn-info"%>
         <% end %>
       </div>
