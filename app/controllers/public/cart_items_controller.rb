@@ -17,7 +17,7 @@ class Public::CartItemsController < ApplicationController
   def create
     #binding.pry
     @cart_items = CartItem.find(params[:id])
-    
+
     if @cart_items.save!
       redirect_to cart_items_path(@cart_items.id)
     else
@@ -26,7 +26,7 @@ class Public::CartItemsController < ApplicationController
       2. カート内の個数をフォームから送られた個数分追加する
     存在しなかった場合
       カートモデルにレコードを新規作成する
-    
+
   end
 
   private
