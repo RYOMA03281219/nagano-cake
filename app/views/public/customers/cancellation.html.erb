@@ -1,0 +1,23 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 ">
+      <h1 class="text-center text-about-title">About</h1>
+
+      <%= form_with model: @customer, url: customers_my_page_path, do |f| %>
+      <br></br>
+      <main class="text-center text-about">
+        <p>退会すると、会員登録情報や</p>
+        <p>これまでの購入履歴が閲覧できなくなります。</p>
+        <p>退会する場合は、「退会する」をクリックしてください。</p>
+      </main>
+      <br></br>
+      <div class="actions">
+        <%= f.submit "退会しない", class: "btn btn-sm btn-primary" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "退会する", method: :destroy, class: "btn btn-sm btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
