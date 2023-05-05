@@ -1,15 +1,32 @@
-<table> 
-  <thead>
-      <th>単価(税込)</th>
-      <th>小計</th>
-  </thead>
-  <tbody>
-  <% インスタンス変数.each do |cart_item| %>
-      <tr>
-          <td><%= cart_item.item.with_tax_price%></td>
-          <td><%= cart_item.subtotal%></td>
-          <% @合計金額 +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 ">
+      <p><h2>ショッピングカート</h2>
+         <%= link_to "カートを空にする", url: cart_items_path, method: :delete, class: "btn btn-default btn-lg btn-info" %></p>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @curt_items.each do |cart_item| %>
+              <tr>
+                <td><%= image_tag curt_item.get_image(50,50)%><%= curt_item.name %></td>
+                <td><%= cart_item.purchase_price %></td>、
+                <td><%= select_tag select :amount, *[1..10] %><%= link_to "編集" %>/td>
+                <td><%= (cart_item.purchase_price * cart_item.amount.to_s(:delimited)) %></td>
+                <%# @合計金額 +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
