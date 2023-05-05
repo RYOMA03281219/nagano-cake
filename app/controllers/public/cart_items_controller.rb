@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
   def index
-
+    @curt_items = CurtItem.find(current_customer.id)
+    @item_count = Item.all.count
   end
 
   def update
