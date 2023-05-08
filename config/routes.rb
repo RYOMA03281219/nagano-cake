@@ -32,8 +32,8 @@ devise_for :customers,skip: [:passwords], controllers: {
   # resources :customers, only: [:show, :edit, :update, :cancellation, :withdrawal]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
   resources :cart_items, only: [:index, :update, :destroy, :create]
-  get '/orders/confirm' => 'orders#confirm'
-  patch '/orders/completion' => 'orders#completion'
+  post '/orders/confirm' => 'orders#confirm'
+  get '/orders/completion' => 'orders#completion'
   resources :orders, only: [:new, :create, :index, :show]
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
  end
