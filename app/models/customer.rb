@@ -13,6 +13,9 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_items
+  has_many :orders
+  has_many :address
+
 
 
 end
