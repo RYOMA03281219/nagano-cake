@@ -26,13 +26,16 @@ devise_for :customers,skip: [:passwords], controllers: {
   resources :items, only: [:index, :show]
   get '/customers/my_page' => 'customers#show'
   get '/customers/information/edit' => 'customers#edit'
-  # patch '/customers/information' => 'customers#update'
+  patch '/customers/information' => 'customers#update'
   get '/customers/cancellation' => 'customers#cancellation'
-  # patch '/customers/withdrawal' => 'customers#withdrawal'
+  patch '/customers/withdrawal' => 'customers#withdrawal'
   # resources :customers, only: [:show, :edit, :update, :cancellation, :withdrawal]
-  resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
-  resources :orders, only: [:new, :confirm, :completion, :create, :index, :show]
-  resources :addresses, only: [:index, :edit]
+  delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+  resources :cart_items, only: [:index, :update, :destroy, :create]
+  get '/orders/confirm' => 'orders#confirm'
+  patch '/orders/completion' => 'orders#completion'
+  resources :orders, only: [:new, :create, :index, :show]
+  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
  end
 
 
