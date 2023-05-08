@@ -1,0 +1,56 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+
+    <h2>注文情報確認</h2>
+
+    <div class="col-md-8">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td>商品名</td>
+            <td>単価(税込)</td>
+            <td>数量</td>
+            <td>小計</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= image_tag order.item.get_image(50,50) %><%= order.item.name %></td>
+              <td><%= order.item.with_tax_price %></td>
+              <td><%= order.item.amount %></td>
+              <td><%= order.subtotal.to_s(:delimited) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <table class="table table-bordered">
+        <tr>
+          <td>送料</td>
+          <td><%= @order.postage %></td>
+        </tr>
+
+        <tr>
+          <td>商品合計</td>
+          <td><%= @total.round.to_s(:delimited) %></td>
+        </tr>
+
+        <tr>
+          <td>送料</td>
+          <td><%= @order.billing_amount.to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+    
+    <table class="table table-borderless">
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>
