@@ -1,15 +1,15 @@
 class Public::CustomersController < ApplicationController
   def show
-    @customer = Customer.find(current_customer.id)
+    @customer = current_customer
   end
 
   def edit
-    @customer = Customer.find(current_customer.id)
+    @customer = current_customer
   end
 
   def update
-    @customer = Customer.find(current_customer.id)
-    if @customer.update(customer_params)
+    @customer = current_customer
+    if @customer.update!(customer_params)
       redirect_to customers_my_page_path
     else
       render "edit"
@@ -17,13 +17,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def cancellation
-    @customer = Customer.find(current_customer.id)
+    @customer = current_customer
   end
 
   def withdrawal
-    @customer = Customer.find(current_customer.id)
-    @customer.destroy
-    redirect_to customers_cancellation_path
+    @customer = current_customer
+    customer.destroy
+    redirect_to root_path
   end
 
  private
