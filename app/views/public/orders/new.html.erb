@@ -1,0 +1,29 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 ">
+      <h2>注文情報入力</h2>
+
+      <% form_with model: @orders, url: orders_confirm_path, method: :post do |f| %>
+
+        <table class="table table-borderless">
+          <tr>
+            <td><strong><%= f.label :支払方法 %></strong></td>
+            <td><%= f.radio_button :payment_method, true %><%= f.label :クレジットカード %></td>
+            <td><%= f.radio_button :payment_method, false %><%= f.label :銀行振込 %></td>
+          </tr>
+
+          <tr>
+            <td><strong><%= f.label :お届け先 %></strong></td>
+            <td><%= f.radio_button :address, true %><%= f.label :ご自身の住所 %>
+                <%= @customer.address %></td>
+            <td><%#= f.radio_button :is_deleted, false %><%#= f.label :銀行振込 %></td>
+          </tr>
+          <div class="action-group">
+            <%= f.submit "確認画面へ進む", class: "btn btn-default btn-lg btn-info"%>
+          </div>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
