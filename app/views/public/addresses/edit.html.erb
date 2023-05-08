@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-1">
-      <h2>ジャンル編集</h2>
-        <%= form_with model: @address, url: addresses_path, method: :patch do |f| %>
+      <h2>配送先編集</h2>
+        <%= form_with model: @address, url: address_path(@address.id), method: :patch do |f| %>
         <div class="field">
           <%= f.label :"郵便番号(ハイフンなし)" %>
           <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
