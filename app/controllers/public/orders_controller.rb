@@ -6,9 +6,11 @@ def new
 end
 
 def confirm
-  @order = Order.find(params[:id])
-  @order.cpunt = Order.all.count
-  @total = @order_details.inject(0) { |sum, order| sum + order.sum_of_price }
+  @postage = 800
+  @customer = current_customer
+  @orders = current_customer.orders.all
+  @order_count = Order.all.count
+  @total = @orders.inject(0) { |sum, order| sum + order.sum_of_price }
 end
 
 def completion
@@ -16,6 +18,7 @@ def completion
 end
 
 def create
+
   @order = Order.new(order_params)
   @order.customer_id = current_customer.id
   if @order.save!
@@ -31,8 +34,8 @@ def index
 end
 
 def show
+  @customer = current_customer
   @order = Order.find(params[:id])
-  @order_details = @order.order_detail
   @total = @order_details.inject(0) { |sum, order| sum + order.sum_of_price }
 end
 
