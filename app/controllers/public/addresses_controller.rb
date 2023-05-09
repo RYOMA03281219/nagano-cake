@@ -27,11 +27,11 @@ class Public::AddressesController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @address = Address.find(params[:id])
-  #   @customer.destroy
-  #   redirect_to addresses_path
-  # end
+  def destroy
+    @address = Address.find(params[:id])
+    @address.destroy
+    redirect_to address_path
+  end
 
   private
 
