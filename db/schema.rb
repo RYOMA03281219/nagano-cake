@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2023_04_22_122208) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "name", null: false
-    t.string "postage", null: false
+    t.string "postage", default: "800", null: false
     t.string "billing_amount", null: false
     t.integer "payment_method", default: 0, null: false
     t.integer "order_status", default: 0, null: false
