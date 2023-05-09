@@ -6,8 +6,8 @@ class Item < ApplicationRecord
   # validates :item, inclusion: {in:[true,false]}
 
   belongs_to :genre
-  has_many :cart_item
-  belongs_to :oders
+  has_many :cart_items
+  has_many :order_details
 
   has_one_attached :image
 
