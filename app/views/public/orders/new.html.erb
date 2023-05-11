@@ -9,13 +9,19 @@
         <table class="table table-borderless">
           <tr>
             <strong><%= f.label :支払方法 %></strong>
-            <td><%= f.radio_button :payment_method, true %><%= f.label :クレジットカード %></td>
-            <td><%= f.radio_button :payment_method, true %><%= f.label :銀行振込 %></td>
+            <div class="radio-inline">
+              <%= f.radio_button :payment_method, :クレジットカード, checked: "checked" %>
+              <%= f.label :クレジットカード, class: "job_type_label" %>
+            </div>
+            <div class="radio-inline">
+              <%= f.radio_button :payment_method, :銀行振込 %>
+              <%= f.label :銀行振込, class: "job_type_label" %>
+            </div>
           </tr>
 
           <tr>
             <td><strong><%= f.label :お届け先 %></strong></td>
-            <td><%= f.radio_button :address, true %><%= f.label :ご自身の住所 %>
+            <td><%= f.radio_button :address_id, 0 %><%= f.label :ご自身の住所 %>
                 〒<%= @customer.postal_code %>
                 　<%= @customer.address %>
                 　<%= @customer.last_name %><%= @customer.first_name %>
@@ -23,7 +29,7 @@
 
 
 
-            <td>新しいお届け先</td>
+            <!--<td>新しいお届け先</td>-->
             <td></td>
           </tr>
         </table>
