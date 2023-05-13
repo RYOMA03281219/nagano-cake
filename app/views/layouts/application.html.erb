@@ -16,7 +16,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="/">
-            <span>Logoが入ります<span>
+            <%= image_tag 'nagano cake.jpg', size: '100x100', class: "logo_image" %>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,6 +53,9 @@
               </li>
 
             <% elsif customer_signed_in? %>
+              <span class='text-light'>
+                <%= flash[:notice] %>
+              </span>
               <li class="nav-item">
                 <%= link_to customers_my_page_path, class: 'nav-link text-light' do %>
                   マイページ
@@ -80,7 +83,7 @@
                   About
                 <% end %>
               </li>
-           　  <li class="nav-item">
+              <li class="nav-item">
                 <%= link_to items_path, class: 'nav-link text-light' do %>
                   商品一覧
                 <% end %>
@@ -90,7 +93,7 @@
                   新規登録
                 <% end %>
               </li>
-          　   <li class="nav-item">
+              <li class="nav-item">
                 <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
                   ログイン
                 <% end %>
