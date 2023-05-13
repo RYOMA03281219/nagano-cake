@@ -1,20 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <th><%#= render 'public/items/genre_search', genres: @genres %></th>
-    </div>
-
-    <div class="col-md-9">
       <!--ストロングタグで作成する-->
+    <div class="col-md-12">
       <h1><strong>商品一覧</strong>(全<%= @item_count %>件)</h1>
-      <% @items.each do |item| %>
-         <%= link_to item_path(item) do %>
-           <p><%= image_tag item.get_image(200,200)%></p>
-         <% end %>
-           <p><%= item.name %></p>
-           <p><%= item.price %></p>
-      <% end %>
     </div>
+    <% @items.each do |item| %>
+      <div class="col-md-4">
+      <%= link_to item_path(item.id) do %>
+        <p><%= image_tag item.get_image(200,200)%></p>
+       <% end %>
+        <p><%= item.name %></p>
+        <p><%= item.price %></p>
+      </div>
+    <% end %>
     <%= paginate @items %>
   </div>
 </div>
