@@ -4,25 +4,28 @@
       <th><%#= render 'public/items/genre_search', genres: @genres %></th>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-12">
       <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
         <p>ようこそ、ながのCAKEへ！</p>
         <p>このサイトは、ケーキ販売のECサイトになります。</p>
         <p>会員でない方も商品の閲覧はできますが、</p>
         <p>購入には会員登録が必要になります。</p>
       </div>
-
+      <td></td>
       <h2>新着商品</h2>
-        <table class="table table-borderless">
-          <% @recommend_items.each do |item| %>
-             <%= link_to items_path(item) do %>
-               <p><%= image_tag item.get_image(200,200)%></p>
-             <% end %>
-               <p><%= item.name %></p>
-               <p>￥<%= item.price %></p>
-          <% end %>
-        </table>
-      <%= link_to "すべての商品を見る", items_path, class: 'nav-link' %>
     </div>
+
+      <table class="table table-borderless">
+        <% @recommend_items.each do |item| %>
+          <div class="col-md-3">
+            <%= link_to item_path(item) do %>
+              <p><%= image_tag item.get_image(200,200)%></p>
+            <% end %>
+              <p><%= item.name %></p>
+              <p>￥<%= item.price %></p>
+          </div>
+        <% end %>
+      </table>
+    <%= link_to "すべての商品を見る", items_path, class: 'nav-link' %>
   </div>
 </div>
