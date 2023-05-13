@@ -21,8 +21,9 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdrawal
-    @customer = current_customer
-    customer.destroy
+    @customer = Customer.find(current_customer.id)
+    @customer.destroy
+    flash[:notice] = "ありがとうございました。"
     redirect_to root_path
   end
 
