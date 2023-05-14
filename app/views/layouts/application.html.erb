@@ -54,7 +54,7 @@
 
             <% elsif customer_signed_in? %>
               <span class='text-light'>
-                <%= flash[:notice] %>
+                <%= flash[:welcome] %>
               </span>
               <li class="nav-item">
                 <%= link_to customers_my_page_path, class: 'nav-link text-light' do %>
