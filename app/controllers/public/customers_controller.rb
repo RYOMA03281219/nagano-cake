@@ -22,7 +22,8 @@ class Public::CustomersController < ApplicationController
 
   def withdrawal
     @customer = Customer.find(current_customer.id)
-    @customer.destroy
+    @customer.update(is_deleted: true)
+    reset_session
     flash[:notice] = "ありがとうございました。"
     redirect_to root_path
   end
