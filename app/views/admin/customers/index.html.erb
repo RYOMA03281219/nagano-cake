@@ -20,7 +20,7 @@
                   <%= customer.last_name %><%= customer.first_name%>
                 <% end %>
             </td>
-            <td><%= customer.address%></td>
+            <td><%= customer.email %></td>
             <td>
               <% unless customer.is_deleted %>
                 <p>有効</p>
@@ -35,3 +35,4 @@
     </div>
   </div>
 </div>
+<%= paginate @customers %>

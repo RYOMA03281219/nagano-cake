@@ -53,7 +53,7 @@ def show
   @customer = current_customer
   @order = Order.find(params[:id])
   @order_details = @order.order_details
-  @total = (@order_details.inject(0) { |sum, cart_items| sum + cart_items.subtotal })
+  @total = (@cart_items.inject(0) { |sum, cart_items| sum + cart_items.subtotal })
 end
 
 private
