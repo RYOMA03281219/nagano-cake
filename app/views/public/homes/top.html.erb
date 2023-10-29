@@ -1,9 +1,5 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <th><%#= render 'public/items/genre_search', genres: @genres %></th>
-    </div>
-
+  <div class="row mt-3">
     <div class="col-md-12">
       <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
         <p>ようこそ、ながのCAKEへ！</p>
@@ -12,20 +8,23 @@
         <p>購入には会員登録が必要になります。</p>
       </div>
       <td></td>
-      <h2>新着商品</h2>
+      <h2>【新着商品】</h2>
     </div>
 
-      <table class="table table-borderless">
-        <% @recommend_items.each do |item| %>
-          <div class="col-md-3">
-            <%= link_to item_path(item) do %>
-              <p><%= image_tag item.get_image(200,200)%></p>
-            <% end %>
-              <p><%= item.name %></p>
-              <p>￥<%= item.price %></p>
+
+    <table class="table table-borderless">
+      <% @recommend_items.each do |item| %>
+        <div class="col-md-4">
+          <%= link_to item_path(item) do %>
+            <p><%= image_tag item.get_image(200,200)%></p>
+          <% end %>
+          <div style="">
+            <p><%= item.name %></p>
+            <p>￥<%= item.price %></p>
           </div>
-        <% end %>
-      </table>
+        </div>
+      <% end %>
+    </table>
     <%= link_to "すべての商品を見る", items_path, class: 'nav-link' %>
   </div>
 </div>
