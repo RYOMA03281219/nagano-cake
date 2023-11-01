@@ -38,17 +38,4 @@ devise_for :customers,skip: [:passwords], controllers: {
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
  end
 
-
-# 管理者側のルーティング設定
-# 管理者用
-# URL /admin/sign_in ...
-
-
-
-
 end
-  #   # devise_for :admins, skip: :all
-  #   # devise_scope :admins do
-  #   # get '/sign_in' => 'sessions#new'
-  #   # post '/sign_in' => 'sessions#create'
-  #   # delete '/sign_out' => 'sessions#destroy'
