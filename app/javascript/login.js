@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  
   var formInputs = $('input[type="email"],input[type="password"]');
   formInputs.focus(function() {
        $(this).parent().children('p.formLabel').addClass('formTop');
