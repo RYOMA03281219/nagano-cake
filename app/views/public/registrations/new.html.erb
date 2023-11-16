@@ -1,71 +1,100 @@
-<p id="notice"></p>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 ">
-      <h2>新規会員登録</h2>
+<!--<p id="notice"></p>-->
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-12 ">-->
+<!--      <h2>新規会員登録</h2>-->
 
       <%= form_with model: @customer, url: customer_registration_path do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
 
-        <div class="field">
-          <%= f.label :"名前" %>
-          <%= f.label :"(姓)"%>
-          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-          <%= f.label :"(名)"%>
-          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-        </div>
 
-        <div class="field">
-          <%= f.label :"フリガナ" %>
-          <%= f.label :"(セイ)"%>
-          <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
-          <%= f.label :"(メイ)"%>
-          <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+        <div class="container">
+          <div class="card-container">
+            <div class="card-body">
+              <h3 class="card-title text-center mb-4 mt-1">新規会員登録</H3>
+              <hr>
+              <form>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        </svg>
+                      </span>
+                    </div>
+                    <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name", type: "last_name" %>
+                    <%= f.text_field :first_name, class: "form-control", placeholder: "First Name", type: "first_name"%>
+                  </div>
+                </div>
+                <!--<div class="form-group">-->
+                <!--  <div class="input-group">-->
+                <!--  </div>-->
+                <!--</div>    -->
+              </form>
+              </hr>
+            </div>
+          </div>
         </div>
+<!--        <div class="field">-->
+<!--          <%#= f.label :"名前" %>-->
+<!--          <%#= f.label :"(姓)"%>-->
+<!--          <%#= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>-->
+<!--          <%#= f.label :"(名)"%>-->
+<!--          <%#= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>-->
+<!--        </div>-->
 
-        <div class="field">
-          <%= f.label :メールアドレス %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
+<!--        <div class="field">-->
+<!--          <%#= f.label :"フリガナ" %>-->
+<!--          <%#= f.label :"(セイ)"%>-->
+<!--          <%#= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>-->
+<!--          <%#= f.label :"(メイ)"%>-->
+<!--          <%#= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>-->
+<!--        </div>-->
 
-        <div class="field">
-          <%= f.label :"郵便番号(ハイフンなし)" %>
-          <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-        </div>
+<!--        <div class="field">-->
+<!--          <%#= f.label :メールアドレス %>-->
+<!--          <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>-->
+<!--        </div>-->
 
-        <div class="field">
-          <%= f.label :"住所" %>
-          <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-        </div>
+<!--        <div class="field">-->
+<!--          <%#= f.label :"郵便番号(ハイフンなし)" %>-->
+<!--          <%#= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>-->
+<!--        </div>-->
 
-        <div class="field">
-          <%= f.label :"電話番号(ハイフンなし)" %>
-          <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
-        </div>
+<!--        <div class="field">-->
+<!--          <%#= f.label :"住所" %>-->
+<!--          <%#= f.text_field :address, autofocus: true, autocomplete: "address" %>-->
+<!--        </div>-->
 
-        <div class="field">
-          <%= f.label :"パスワード" %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上)
-          <% end %>
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
+<!--        <div class="field">-->
+<!--          <%#= f.label :"電話番号(ハイフンなし)" %>-->
+<!--          <%#= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>-->
+<!--        </div>-->
 
-        <div class="field">
-          <%= f.label :"パスワード(確認用)" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
+<!--        <div class="field">-->
+<!--          <%#= f.label :"パスワード" %>-->
+<!--          <%# if @minimum_password_length %>-->
+<!--          <em>(<%#= @minimum_password_length %> 文字以上)-->
+<!--          <%# end %>-->
+<!--          <%#= f.password_field :password, autocomplete: "new-password" %>-->
+<!--        </div>-->
 
-        <div class="actions">
-          <%= f.submit "新規登録", class: "btn btn-sm btn-primary" %>
-        </div>
-      <% end %>
+<!--        <div class="field">-->
+<!--          <%#= f.label :"パスワード(確認用)" %>-->
+<!--          <%#= f.password_field :password_confirmation, autocomplete: "new-password" %>-->
+<!--        </div>-->
 
-      <h3>既に登録済みの方</h3>
-      <%= link_to "こちら", new_customer_session_path  %>からログインしてください。
-    </div>
-  </div>
-</div>
+<!--        <div class="actions">-->
+<!--          <%#= f.submit "新規登録", class: "btn btn-sm btn-primary" %>-->
+<!--        </div>-->
+<!--      <%# end %>-->
+
+<!--      <h3>既に登録済みの方</h3>-->
+<!--      <%#= link_to "こちら", new_customer_session_path  %>からログインしてください。-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 
 
